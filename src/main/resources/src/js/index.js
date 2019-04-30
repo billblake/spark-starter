@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import $ from 'jquery'
 import '../css/style.css';
+import '../sass/style.scss';
 import 'bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
