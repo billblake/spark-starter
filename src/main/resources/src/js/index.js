@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import $ from 'jquery'
-import './style.css';
+import '../css/style.css';
 import 'bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -18,7 +18,7 @@ $(document).ready(function () {
     document.body.appendChild(component());
     $(".hello").text("hello")
     
-    const template = require("./userTable.handlebars");
+    const template = require("../templates/userTable.handlebars");
     
     $("#save").click(function () {
         console.log("save");
