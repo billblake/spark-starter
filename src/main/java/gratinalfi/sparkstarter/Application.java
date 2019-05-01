@@ -16,7 +16,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		port(8080);
-		staticFiles.location("/dist");
+		staticFiles.location("/ui/dist");
 		get("/hello", (req, res) -> "Hello World");
 		get("/user", (req, res) -> {
 			List<Person> people = Arrays.asList(new Person("Bill", 38), new Person("Ted", 40));

@@ -7,29 +7,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 $(document).ready(function () {
     
-    function component() {
-        const element = document.createElement('div');
-        
-        element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-        element.classList.add('hello');
-        
-        return element;
-    }
-    
-    document.body.appendChild(component());
-    $(".hello").text("hello")
-    
+    // lodash example usage
+    const lodashExample = _.join(['Hello', 'World'], ' ');
+
+    // load handlebars template
     const template = require("../templates/userTable.handlebars");
     
+    // jquery
     $("#save").click(function () {
-        console.log("save");
+        // Bootstrap js
         $('#exampleModal').modal('hide')
     });
     
+    // example get service call
     $.get("/user").then((response) => {
         $("#user-table-wrapper").html(template({users : JSON.parse(response)}))
-        console.log(response);
     });
-
 })
-
