@@ -10,18 +10,15 @@ import java.util.Arrays;
 import java.util.List;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import spark.servlet.SparkApplication;
 
 
-public class Application {
+
+public class Application implements SparkApplication {
 
 	public static void main(String[] args) {
-		port(8080);
-		staticFiles.location("/ui/dist");
-		get("/hello", (req, res) -> "Hello World");
-		get("/user", (req, res) -> {
-			List<Person> people = Arrays.asList(new Person("Bill", 38), new Person("Ted", 40));
-			return convertToJson(people);
-		});
+		Application app = new Application();
+		app.init();
 	}
 	
 	public static String convertToJson(Object objectToConvert) {
@@ -60,5 +57,16 @@ public class Application {
 			this.age = age;
 		}
 
+	}
+
+	@Override
+	public void init() {
+//		port(8080);
+		staticFiles.location("/ui/dist");
+		get("/hello", (req, res) -> "Hello World");
+		get("/user", (req, res) -> {
+			List<Person> people = Arrays.asList(new Person("Bill", 38), new Person("Ted", 40));
+			return convertToJson(people);
+		});
 	}
 }
